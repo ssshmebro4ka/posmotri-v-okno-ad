@@ -37,7 +37,7 @@ ol {
   list-style: none;
 }
 
-/* Кастомный скроллбар */
+/*Кастомный скроллбар*/
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
 }
@@ -48,4 +48,324 @@ ol {
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #D9D9D9;
+}
+
+.page {
+  /* Центрируем весь контент на странице */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  align-items: flex-end; /*Прижимаем к низу*/
+  gap: 30px; /*Отступ между левой и правой частью*/
+  width: 1140px; /*Ширина по макету (1200 - отступы)*/
+}
+
+.search-form {
+  /*Располагаем элементы формы в строку*/
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /*Прижимаем к верху*/
+}
+
+.content__list-container {
+  /*Жёсткая высота и скролл*/
+  height: 298px;
+  overflow-y: auto;
+}
+
+.content__details {
+  /*Растягиваем на всю доступную ширину и высоту*/
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /*Отступ между заголовком и карточками*/
+  height: 100%;
+}
+
+.result__video-container {
+  width: 711px;
+  height: 386px;
+  margin-block-end: 16px; /*Отступ снизу*/
+  position: relative; /* Для прелоадера*/
+}
+
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /*Видео заполняет контейнер без искажений*/
+  object-position: center;
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /*Отступ между карточками*/
+}
+
+.content__list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /*Отступ между карточками и кнопкой показать ещё*/
+  position: relative; /*Для прелоадера*/
+}
+
+.content__video-card {
+  display: flex;
+  align-items: flex-start; /*Прижимаем к верху*/
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content__video-card-description-container {
+  flex-grow: 1; /*Занимает всё свободное место*/
+}
+
+/*Заголовок посмотри в окно*/
+.title {
+  font-size: 75px;
+  font-weight: 700; /*Жирный шрифт*/
+  line-height: 0.94; 
+  text-transform: uppercase; /*Все буквы заглавные*/
+  letter-spacing: -1px; /*Сжатие букв*/
+}
+
+/*Акцентная часть по*/
+.content__accent {
+  color: #545050; 
+}
+
+/*Заголовки секций формы*/
+.search-form__fieldset-title {
+  font-weight: 400;
+  font-size: 18px;
+  margin-block-end: 5px; /*Отступ снизу до инпута*/
+}
+
+/*Ссылки карточек*/
+.content__card-link {
+  display: block; /*Блочная ссылка*/
+  text-decoration: none; /*Убираем подчеркивание*/
+  color: #fff; /*Белый цвет текста*/
+}
+
+/*Названия городов в карточках*/
+.content__video-card-title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-block-end: 5px;
+  /*Обрезка длинного текста в ...*/
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*Описание в карточках*/
+.content__video-card-description {
+  font-size: 18px;
+  line-height: 0.9; 
+  color: #fff;
+  /*Обрезка текста если он не влезает в 3-4 строки*/
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /*Максимум 3 строки*/
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/*Подсветка текущей карточки*/
+.content__card-link_current {
+  background-color: #545050;
+}
+
+/*Обводка при фокусе с клавиатуры табом*/
+.content__card-link:focus {
+  outline: none;
+}
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+/*Сбрасываем рамку у fieldset*/
+.search-form__fieldset {
+  border: none;
+}
+
+/*Утилита для скрытия стандартных элементов*/
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/*Располагаем чекбоксы в строку*/
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px; /*Отступ между чекбоксами*/
+}
+
+/*Обертка для инпута и чекбоксов*/
+.search-form__label {
+  display: flex;
+  align-items: center;
+  gap: 5px; /*Отступ между чекбоксом и текстом*/
+  width: fit-content; /*Не растягиваем на всю ширину*/
+  cursor: pointer; /*Курсор-рука при наведении*/
+}
+
+/*Стилизация текстового поля ввода*/
+.search-form__textfield {
+  appearance: none; /*Убираем стандартные стили браузера*/
+  font-family: inherit;
+  font-size: 18px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  border-block-start: 1px solid #fff; /*Линия сверху*/
+  border-block-end: 1px solid #fff; /*Линия снизу*/
+  inline-size: 225px;
+  padding: 5px 0;
+}
+
+/*Цвет плейсхолдера*/
+.search-form__textfield::placeholder {
+  color: rgb(255 255 255 / 0.7);
+}
+
+/*Убираем стандартную обводку при фокусе*/
+.search-form__textfield:focus {
+  outline: none;
+}
+
+/*Обводка лейбла когда внутри него инпут в фокусе*/
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+/*Стилизация кастомного чекбокса*/
+.search-form__pseudo-checkbox {
+  width: 19px;
+  height: 19px;
+  border: 1px solid #fff;
+  padding: 1px; /*Внутренний отступ для закрашенного квадрата*/
+}
+
+/*Внутренний закрашенный квадрат*/
+.search-form__pseudo-checkbox::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0; /* По умолчанию скрыт */
+}
+
+/*Показываем закрашенный квадрат когда чекбокс выбран*/
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  opacity: 1;
+}
+
+/*Подчеркивание текста при наведении на весь лейбл*/
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+}
+
+/*Убираем подчеркивание у текстового инпута при наведении*/
+.search-form__textfield:hover {
+  text-decoration: none;
+}
+
+.button {
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px 0;
+}
+
+.search-form__submit-button {
+  width: 194px;
+  height: 34px;
+  align-self: flex-end; /*Прижимает к низу формы*/
+}
+
+.more-button {
+  width: 100%;
+  height: 34px;
+}
+
+/*Состояния кнопок при наведении и нажатии*/
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  background-color: #545050; /*Серый фон при нажатии*/
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+/*Подчеркивание текста в карточке при наведении на неё*/
+.content__card-link:hover .content__video-card-title,
+.content__card-link:hover .content__video-card-description {
+  text-decoration: underline;
+}
+
+/*Фон для выбранной карточки*/
+.content__card-link_current {
+  background-color: #545050;
+}
+
+/*Фон при удержании на карточку*/
+.content__card-link:active {
+  background-color: #545050;
+}
+
+/*Убираем стандартную обводку при клике мышкой*/
+.content__card-link:focus {
+  outline: none;
+}
+
+/*Белая обводка при переходе по карточкам с клавиатуры табом*/
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+/*Отступы слева и справа для карточки, чтобы обводка не прилипала к краям*/
+.content__list-item {
+  padding-inline: 3px;
+}
+
+/*Меняем курсор на руку для всех кликабельных элементов*/
+.search-form__label,
+.search-form__submit-button,
+.more-button,
+.content__card-link {
+  cursor: pointer;
 }
