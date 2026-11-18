@@ -30,4 +30,4 @@
 
 1. Склонируйте репозиторий на свой компьютер:
    ```bash
-   git clone <ссылка_на_ваш_репозиторий>
+   git clone https://github.com/ssshmebro4ka/posmotri-v-okno-ad.git
